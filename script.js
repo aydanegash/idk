@@ -1,5 +1,5 @@
 
-prompt("hello there?");
+console.log("testing");
 console.log("this");
 
 
