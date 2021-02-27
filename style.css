@@ -8,10 +8,7 @@
   background-color: #ffffff;
   }
 
- .passwordBox{
-     
- }
-
+ 
   button {
     padding: 30px;
     margin: 24px;
@@ -24,4 +21,10 @@
     border-radius: 20px;
   }
 
- 
+  textarea, select {
+    height: 200px;
+    margin-right: 10px;
+    font-size: 20px;
+    width: 90%;
+  }
+  
