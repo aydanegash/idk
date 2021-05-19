@@ -21,7 +21,7 @@ var writeNewaPassword = function() {
 // functin to create password 
 var createNewPassword = function() {
         var password ='';  
-        var basePassword = ['a', 'y', 'd','a'];
+        var basePassword = [""];
         var choiceCreatePassword = alert("Get ready to get a new random computer generated password!");
         //var of the prompts/confirm so user can pick what characteristics their password has
         var length = prompt("Between 8 to 128 characters, how many characters would you like your password to have?");
