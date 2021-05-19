@@ -6,8 +6,7 @@
     var lowerCaseletters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
                             "o","p","q","r","s","t","u","v","w","x","y","z"];
 
-    var specialCharacters = ["`","~","!","@","#","$","%","^","&","*","(",")","-","_",
-                                "=","+",",",".","<",">","/","?",";",":"];
+    var specialCharacters = ["`","~","!","@","#","$","%","^","&","*"];
 
     var numbers = ["0","1","2","3","4","5","6","7","8","9"];
     
@@ -18,21 +17,13 @@ var writeNewaPassword = function() {
     var password = createNewPassword();
     var passwordHolder = document.querySelector("#passwordHolder");
     passwordHolder.value = password;
-
-    function randomize(){
-        for (var i= 0; i < length; i++) {
-            password += (Math.floor(Math.random() * characterChoicesAll.length));
-        }
-        return consol.log(password);
-    };
-
 }; 
 
 
 // functin to create password 
 var createNewPassword = function() {
         var password ='';  
-        var characterChoicesAll = useOfNumbers, useOfcapitalLetters, useOflowerCaseLetters, useOfSpecialCharacters;
+        var basePassword = ['a', 'y', 'd','a'];
         var choiceCreatePassword = alert("Get ready to get a new random computer generated password!");
         //var of the prompts/confirm so user can pick what characteristics their password has
         var length = prompt("Between 8 to 128 characters, how many characters would you like your password to have?");
@@ -45,7 +36,10 @@ var createNewPassword = function() {
     // confirm for use of capital letters; console log user choice.
     var useOfcapitalLetters = confirm("Click OK to include capital letters.");
         if (useOfcapitalLetters === true){
-            password += capitalLetters;
+            basePassword += capitalLetters;
+            var randomCapitalLetter = function capitalLower() {
+                return String.capitalLetters(Math.floor(Math.random() *26));
+            }
             console.log("Capital letters will be included.");
         } else {
             console.log("Capital letters will NOT be included.");
@@ -54,7 +48,10 @@ var createNewPassword = function() {
     //confirm for use of lower case letters; console log user choice.
     var useOflowerCaseLetters = confirm("Click OK to include lower case letters.");
         if (useOflowerCaseLetters === true){
-            password += lowerCaseletters;
+            basePassword += lowerCaseletters;
+            var randomLowerCaseLetter = function randomLower() {
+                return String.lowerCaseletters(Math.floor(Math.random() *26));
+            }
             console.log("Lowercase letters will be included.");
         } else {
             console.log("Lowercase letters will NOT be included.");
@@ -63,22 +60,32 @@ var createNewPassword = function() {
     //confirm for use of special charachters; console log user choice.
     var useOfSpecialCharacters = confirm("Click OK to use special charachters.");
         if (useOfSpecialCharacters=== true){
-            password += specialCharacters;
+            basePassword += specialCharacters;
+            var randomSpecialCharacters = function randomSpecial() {
+                return String.specialCharacters(Math.floor(Math.random() *10));
+            }
             console.log("Special characters will be included.");
         } else {
             console.log("Special characters will NOT be included.");
         };
 
     //confim for use of number; console log user choice.
-    var useOfNumbers = confirm("Click   OK to use numbers.");
+    var useOfNumbers = confirm("Click OK to use numbers.");
         if (useOfNumbers === true){
-            password += numbers;
+            basePassword += numbers;
+            var randomNumbers= function randomNum() {
+                return String.numbers(Math.floor(Math.random() *10));
+            }
             console.log("Numbers will be included.");
         } else {
             console.log("Numbers will NOT be included.");
         };
 
-    
+        for (var i= 0; i < length; i++) {
+            password += basePassword.charAt(Math.floor(Math.random() * basePassword.length));
+        }
+        
+        return password;
 };
  
 
