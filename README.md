@@ -7,7 +7,7 @@ User will also be able to choose the use of lowercase, uppercase, numeric, and/o
 
 ## Deployed Website
 https://aydanegash.github.io/password-generator/
-![images/passwordGenerator.png]
+![images/paswordGenerator.png]
 
 ## License & copyright
 
